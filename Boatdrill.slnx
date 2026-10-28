@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Boatdrill.Core/Boatdrill.Core.csproj" />
+    <Project Path="src/Boatdrill/Boatdrill.csproj" />
+    <Project Path="src/Boatdrill.Cli/Boatdrill.Cli.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Boatdrill.Core.Tests/Boatdrill.Core.Tests.csproj" />
+  </Folder>
+</Solution>

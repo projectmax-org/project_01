@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>Boatdrill</AssemblyName>
+    <RootNamespace>Boatdrill</RootNamespace>
+    <AssemblyTitle>Boatdrill</AssemblyTitle>
+    <Description>Rehearses restoring from your backups on a schedule and says, in plain words, whether they would work.</Description>
+    <!-- Lets the WPF project compile (not run) on Linux and macOS, which is how CI and the engine's
+         authors check it without a Windows machine. -->
+    <EnableWindowsTargeting Condition="!$([MSBuild]::IsOSPlatform('Windows'))">true</EnableWindowsTargeting>
+
+    <!-- Runtime tuning: keep the idle footprint small. -->
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+    <RetainVMGarbageCollection>false</RetainVMGarbageCollection>
+    <TieredCompilation>true</TieredCompilation>
+    <TieredPGO>true</TieredPGO>
+    <UseSystemResourceKeys>false</UseSystemResourceKeys>
+    <DebugType Condition="'$(Configuration)'=='Release'">none</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <!-- The WindowsDesktop SDK's implicit usings omit System.IO; the codebase assumes it. -->
+  <ItemGroup>
+    <Using Include="System.IO" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Boatdrill.Core\Boatdrill.Core.csproj" />
+  </ItemGroup>
+
+</Project>

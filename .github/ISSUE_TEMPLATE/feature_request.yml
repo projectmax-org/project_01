@@ -1,0 +1,16 @@
+name: Feature request
+description: Something Boatdrill should do
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What you are trying to check about your backups that the app makes hard or impossible.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like
+      description: How you imagine it working. If it is a new kind of destination, say which software makes it and how it lays files out.

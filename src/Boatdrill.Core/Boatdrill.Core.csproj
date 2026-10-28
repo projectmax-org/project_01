@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>Boatdrill.Core</AssemblyName>
+    <RootNamespace>Boatdrill.Core</RootNamespace>
+    <Description>The drill engine behind Boatdrill: sampling, destination adapters, read-back verification, scoring and history. No UI, no Windows API, so it builds and tests anywhere.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Boatdrill.Core.Tests" />
+  </ItemGroup>
+
+</Project>

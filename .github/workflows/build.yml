@@ -1,0 +1,48 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  core:
+    name: Core tests on Linux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      # The engine has no Windows dependency, so the quickest check runs here.
+      - name: Test
+        run: dotnet test tests/Boatdrill.Core.Tests -c Release --nologo
+
+      - name: Compile the Windows app and the CLI
+        run: dotnet build Boatdrill.slnx -c Release --nologo
+
+  windows:
+    name: App on Windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      # Tests again on Windows, then publishes the single-file executables.
+      - name: Test and publish
+        shell: pwsh
+        run: .\build.ps1
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: boatdrill-${{ github.sha }}
+          path: |
+            dist/Boatdrill.exe
+            dist/boatdrill-cli.exe
+          if-no-files-found: error

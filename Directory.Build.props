@@ -1,0 +1,25 @@
+<Project>
+
+  <!-- Shared by every project in the repository. Per-project files add only what differs. -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <!-- Version-info block Windows shows in Properties > Details and Task Manager.
+         Boatdrill is a Project Max application; the publisher is the project, the product is the app. -->
+    <Product>Boatdrill</Product>
+    <Company>Project Max</Company>
+    <Authors>Project Max</Authors>
+    <Copyright>Copyright © 2026 Project Max</Copyright>
+    <PackageProjectUrl>https://github.com/projectmax-org/project_01</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/projectmax-org/project_01</RepositoryUrl>
+    <!-- The only version to edit. AssemblyVersion and FileVersion follow it, and the release workflow
+         checks the tag against it. -->
+    <Version>0.1.0</Version>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+</Project>

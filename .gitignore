@@ -1,0 +1,13 @@
+bin/
+obj/
+dist/
+artifacts/
+TestResults/
+
+*.user
+*.suo
+.vs/
+.idea/
+
+# Local assistant/session state, never part of the project.
+.claude/
